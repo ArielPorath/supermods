@@ -1,0 +1,6 @@
+{
+  "name": "supermods",
+  "owner": { "name": "Ariel Porath" },
+  "metadata": { "description": "Generic, tested, high-quality mods for Claude Code" },
+  "plugins": []
+}
