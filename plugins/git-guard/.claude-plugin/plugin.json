@@ -1,0 +1,77 @@
+{
+  "name": "git-guard",
+  "version": "0.1.0",
+  "description": "Stops risky git commands Claude runs through Bash (force pushes, pushes to main, reset --hard, clean -f, branch -D, discarding changes, dropping stashes, rebasing main), denying them or routing them to your permission prompt, each rule toggleable",
+  "author": { "name": "Ariel Porath" },
+  "license": "MIT",
+  "keywords": ["mod", "safety", "git", "guardrails", "permissions"],
+  "userConfig": {
+    "action": {
+      "type": "string",
+      "title": "Action on a match",
+      "description": "deny refuses the command and tells Claude why; ask puts it to your permission prompt instead.",
+      "options": ["deny", "ask"],
+      "default": "deny"
+    },
+    "protectedBranches": {
+      "type": "string",
+      "title": "Protected branches",
+      "description": "Comma-separated branch names that pushes and rebases are guarded on.",
+      "default": "main,master"
+    },
+    "forcePush": {
+      "type": "boolean",
+      "title": "Guard force pushes",
+      "description": "git push --force, -f, --mirror, or a +refspec.",
+      "default": true
+    },
+    "allowForceWithLease": {
+      "type": "boolean",
+      "title": "Allow --force-with-lease",
+      "description": "Let git push --force-with-lease through the force-push rule (it still counts as a push for the protected-branch rule).",
+      "default": true
+    },
+    "protectedPush": {
+      "type": "boolean",
+      "title": "Guard pushes to protected branches",
+      "description": "git push to a protected branch: named (origin main, HEAD:main), or implied (no refspec while on one), or --all.",
+      "default": true
+    },
+    "resetHard": {
+      "type": "boolean",
+      "title": "Guard reset --hard",
+      "description": "git reset --hard.",
+      "default": true
+    },
+    "clean": {
+      "type": "boolean",
+      "title": "Guard clean -f",
+      "description": "git clean -f / -fd / -fdx (a dry run with -n is allowed).",
+      "default": true
+    },
+    "branchForceDelete": {
+      "type": "boolean",
+      "title": "Guard branch -D",
+      "description": "git branch -D, or --delete --force.",
+      "default": true
+    },
+    "discardChanges": {
+      "type": "boolean",
+      "title": "Guard discarding all changes",
+      "description": "git checkout -- . and git restore . (restore --staged alone is allowed).",
+      "default": true
+    },
+    "stashDrop": {
+      "type": "boolean",
+      "title": "Guard stash drop / clear",
+      "description": "git stash drop and git stash clear.",
+      "default": true
+    },
+    "rebaseProtected": {
+      "type": "boolean",
+      "title": "Guard rebasing a protected branch",
+      "description": "git rebase while on a protected branch, or naming one as the branch to rebase.",
+      "default": true
+    }
+  }
+}

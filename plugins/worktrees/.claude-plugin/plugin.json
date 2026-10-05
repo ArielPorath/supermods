@@ -1,0 +1,34 @@
+{
+  "name": "worktrees",
+  "version": "0.1.0",
+  "description": "A /worktrees pane listing the current repo's git worktrees with branch, dirty files, ahead/behind, last commit, and lock/prunable markers; copy a path or insert a cd from any row",
+  "author": { "name": "Ariel Porath" },
+  "license": "MIT",
+  "keywords": ["mod", "git", "worktree", "pane", "interface"],
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "refresh_seconds": {
+      "type": "number",
+      "title": "Refresh interval (seconds)",
+      "description": "How often the pane refreshes while it is open. 0 turns automatic refresh off; the Refresh button still works.",
+      "default": 15,
+      "min": 0,
+      "max": 3600
+    },
+    "max_parallel": {
+      "type": "number",
+      "title": "Parallel worktree checks",
+      "description": "How many worktrees are inspected at once (each check runs git status and git log).",
+      "default": 4,
+      "min": 1,
+      "max": 16
+    },
+    "row_action": {
+      "type": "string",
+      "title": "Row button",
+      "description": "What the button on each worktree row does: copy its path to the clipboard, insert `cd <path>` into the prompt, or no button.",
+      "default": "copy-path",
+      "options": ["copy-path", "insert-cd", "none"]
+    }
+  }
+}

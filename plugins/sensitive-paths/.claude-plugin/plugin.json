@@ -1,0 +1,44 @@
+{
+  "name": "sensitive-paths",
+  "version": "0.1.0",
+  "description": "Blocks Claude from reading or writing secret-bearing files (.env, SSH keys, cloud credentials, and your own globs) through the file tools and, best effort, Bash",
+  "author": { "name": "Ariel Porath" },
+  "license": "MIT",
+  "keywords": ["mod", "safety", "guardrails", "secrets", "permissions"],
+  "userConfig": {
+    "protected": {
+      "type": "string",
+      "multiple": true,
+      "title": "Extra protected globs",
+      "description": "Globs to protect on top of the built-in list, e.g. ~/.config/gh/hosts.yml or **/secrets/**. ~/ is your home; a glob not starting with / or ~/ matches at any depth.",
+      "default": []
+    },
+    "allowed": {
+      "type": "string",
+      "multiple": true,
+      "title": "Allowed globs",
+      "description": "Globs that are never blocked, even when a protected glob matches, e.g. **/fixtures/**/*.pem. Added to the built-in exceptions (.env.example, .env.sample, .env.template, *.pub).",
+      "default": []
+    },
+    "check_bash": {
+      "type": "boolean",
+      "title": "Check Bash commands",
+      "description": "Also block Bash commands whose words name a protected path (cat ~/.ssh/id_rsa, source .env). Best effort: a command can always build a path the check cannot see.",
+      "default": true
+    },
+    "read_mode": {
+      "type": "string",
+      "title": "On a read",
+      "description": "What happens when Read, Glob or Grep targets a protected path: deny refuses it, ask puts it to your permission prompt, off allows it.",
+      "options": ["deny", "ask", "off"],
+      "default": "deny"
+    },
+    "write_mode": {
+      "type": "string",
+      "title": "On a write",
+      "description": "What happens when Edit, Write or NotebookEdit targets a protected path: deny refuses it, ask puts it to your permission prompt, off allows it. Bash uses the stricter of the two modes.",
+      "options": ["deny", "ask", "off"],
+      "default": "deny"
+    }
+  }
+}

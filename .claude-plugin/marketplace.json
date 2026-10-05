@@ -1,6 +1,77 @@
 {
   "name": "supermods",
-  "owner": { "name": "Ariel Porath" },
-  "metadata": { "description": "Generic, tested, high-quality mods for Claude Code" },
-  "plugins": []
+  "owner": {
+    "name": "Ariel Porath"
+  },
+  "metadata": {
+    "description": "Generic, tested, high-quality mods for Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "git-guard",
+      "source": "./plugins/git-guard",
+      "description": "Stops risky git commands Claude runs through Bash (force pushes, pushes to main, reset --hard, clean -f, branch -D, discarding changes, dropping stashes, rebasing main), denying them or routing them to your permission prompt, each rule toggleable",
+      "version": "0.1.0"
+    },
+    {
+      "name": "sensitive-paths",
+      "source": "./plugins/sensitive-paths",
+      "description": "Blocks Claude from reading or writing secret-bearing files (.env, SSH keys, cloud credentials, and your own globs) through the file tools and, best effort, Bash",
+      "version": "0.1.0"
+    },
+    {
+      "name": "pr-desc-verifier",
+      "source": "./plugins/pr-desc-verifier",
+      "description": "Before Claude runs gh pr create or gh pr edit, shows you the PR's title and description and waits for your approval; reject it with feedback and Claude revises",
+      "version": "0.1.0"
+    },
+    {
+      "name": "worktrees",
+      "source": "./plugins/worktrees",
+      "description": "A /worktrees pane listing the current repo's git worktrees with branch, dirty files, ahead/behind, last commit, and lock/prunable markers; copy a path or insert a cd from any row",
+      "version": "0.1.0"
+    },
+    {
+      "name": "modal-containers",
+      "source": "./plugins/modal-containers",
+      "description": "A /modal pane listing your running Modal containers by app, with who launched each run and what it has cost, plus your workspace's month-to-date spend and top apps, and a spend badge under the prompt that turns red past your budget (macOS/Linux)",
+      "version": "0.4.0"
+    },
+    {
+      "name": "docker-containers",
+      "source": "./plugins/docker-containers",
+      "description": "A /docker pane listing your local Docker containers grouped by compose project, with image, published ports, CPU, memory and status; pick the Docker context and whether to include stopped containers in the plugin's settings",
+      "version": "0.1.0"
+    },
+    {
+      "name": "my-issues",
+      "source": "./plugins/my-issues",
+      "description": "A /issues pane of the open issues assigned to you across GitHub, Linear, Jira and monday.com; press an issue to put its key, title and link in your prompt",
+      "version": "0.1.0"
+    },
+    {
+      "name": "vercel-deploys",
+      "source": "./plugins/vercel-deploys",
+      "description": "A /vercel-deploys pane of your recent Vercel deployments: state, environment, branch, commit, creator, age and URL, with the current git branch highlighted",
+      "version": "0.1.0"
+    },
+    {
+      "name": "render-deploys",
+      "source": "./plugins/render-deploys",
+      "description": "A /render-deploys pane of your recent Render deploys: state, service, environment, branch, commit, trigger, age and link, with the current git branch highlighted",
+      "version": "0.1.0"
+    },
+    {
+      "name": "skill-trace",
+      "source": "./plugins/skill-trace",
+      "description": "A /skill-trace pane showing which skills loaded in this session, when, from which plugin, whether the model or you invoked them, and how large their instructions were",
+      "version": "0.1.0"
+    },
+    {
+      "name": "sources",
+      "source": "./plugins/sources",
+      "description": "A /sources pane listing every web page Claude fetched or saw in search results this session, deduplicated by URL, with a button that inserts them as citations into your prompt",
+      "version": "0.1.0"
+    }
+  ]
 }

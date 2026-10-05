@@ -1,0 +1,35 @@
+{
+  "name": "pr-desc-verifier",
+  "version": "0.1.0",
+  "description": "Before Claude runs gh pr create or gh pr edit, shows you the PR's title and description and waits for your approval; reject it with feedback and Claude revises",
+  "author": { "name": "Ariel Porath" },
+  "license": "MIT",
+  "keywords": ["mod", "safety", "github", "pull-request", "review"],
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "guardCreate": {
+      "type": "boolean",
+      "title": "Review gh pr create",
+      "description": "Ask before Claude opens a pull request with gh pr create (or gh pr new).",
+      "default": true
+    },
+    "guardEdit": {
+      "type": "boolean",
+      "title": "Review gh pr edit",
+      "description": "Ask before Claude changes a pull request's title or body with gh pr edit. Edits that only touch labels, reviewers or the base never ask.",
+      "default": true
+    },
+    "guardFill": {
+      "type": "boolean",
+      "title": "Review --fill PRs",
+      "description": "Ask also when the title and body are auto-filled from commits (--fill, --fill-first, --fill-verbose) and Claude wrote neither.",
+      "default": true
+    },
+    "exemptDrafts": {
+      "type": "boolean",
+      "title": "Skip draft PRs",
+      "description": "Let gh pr create --draft through without asking.",
+      "default": false
+    }
+  }
+}

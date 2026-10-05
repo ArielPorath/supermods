@@ -69,7 +69,17 @@ Each mod lives in [`plugins/`](plugins/) and is listed in
 
 | Mod | Category | Description |
 |---|---|---|
-| *The first mods are on their way. Want to write one? See [Contributing](#contributing).* | | |
+| [`git-guard`](plugins/git-guard/) | 🛡️ Safety & guardrails | Denies (or asks before) force pushes, pushes to protected branches, `reset --hard` and other work-destroying git commands |
+| [`sensitive-paths`](plugins/sensitive-paths/) | 🛡️ Safety & guardrails | Blocks reads and writes of secret-bearing files (`.env`, SSH keys, cloud credentials, your own globs) |
+| [`pr-desc-verifier`](plugins/pr-desc-verifier/) | 🛡️ Safety & guardrails | Shows a PR's title and description before `gh pr create`/`edit` and waits for your approval or feedback |
+| [`worktrees`](plugins/worktrees/) | 🖥️ Interface | A `/worktrees` pane of the repo's git worktrees with branch, dirty files, ahead/behind and last commit |
+| [`modal-containers`](plugins/modal-containers/) | 🔌 Integrations | A `/modal` pane of your running Modal containers (launcher, cost) and workspace spend, plus a spend badge that turns red past your budget |
+| [`docker-containers`](plugins/docker-containers/) | 🔌 Integrations | A `/docker` pane of local Docker containers by compose project, with ports, CPU and memory |
+| [`my-issues`](plugins/my-issues/) | 🔌 Integrations | An `/issues` pane of issues assigned to you across GitHub, Linear, Jira and monday.com |
+| [`vercel-deploys`](plugins/vercel-deploys/) | 🔌 Integrations | A `/vercel-deploys` pane of recent Vercel deployments, with the current branch highlighted |
+| [`render-deploys`](plugins/render-deploys/) | 🔌 Integrations | A `/render-deploys` pane of recent Render deploys, with the current branch highlighted |
+| [`skill-trace`](plugins/skill-trace/) | 📊 Observability | A `/skill-trace` pane of which skills loaded this session, when, and who invoked them |
+| [`sources`](plugins/sources/) | 📊 Observability | A `/sources` ledger of every web page Claude consulted, with citations on demand |
 
 ## Using mods
 
