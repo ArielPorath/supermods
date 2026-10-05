@@ -69,7 +69,8 @@ Each mod lives in [`plugins/`](plugins/) and is listed in
 
 | Mod | Category | Description |
 |---|---|---|
-| *The first mods are on their way. Want to write one? See [Contributing](#contributing).* | | |
+| [`agent-debugger`](plugins/agent-debugger/) | 📊 Observability | A step debugger for the agent loop: pause at prompts, model requests, responses, tool calls and results; inspect and edit them; play, step, stop, or re-run from an earlier event. |
+| [`worktree-hud`](plugins/worktree-hud/) | 🖥️ Interface | Status line with the current git worktree, branch and listening ports, and a `/worktrees` pane to review and clear finished worktrees. |
 
 ## Using mods
 

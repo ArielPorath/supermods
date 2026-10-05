@@ -1,6 +1,23 @@
 {
   "name": "supermods",
-  "owner": { "name": "Ariel Porath" },
-  "metadata": { "description": "Generic, tested, high-quality mods for Claude Code" },
-  "plugins": []
+  "owner": {
+    "name": "Ariel Porath"
+  },
+  "metadata": {
+    "description": "Generic, tested, high-quality mods for Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "agent-debugger",
+      "source": "./plugins/agent-debugger",
+      "description": "A step debugger for the agent loop: pause at prompts, model requests, responses, tool calls and results; inspect and edit them; play, step, stop, or re-run from an earlier event.",
+      "version": "0.1.0"
+    },
+    {
+      "name": "worktree-hud",
+      "source": "./plugins/worktree-hud",
+      "description": "Status line with the current git worktree, branch and listening ports, and a /worktrees pane to review and clear finished worktrees.",
+      "version": "0.1.0"
+    }
+  ]
 }
