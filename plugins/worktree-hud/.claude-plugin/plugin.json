@@ -3,7 +3,16 @@
   "version": "0.1.0",
   "description": "Status line with the current git worktree, branch and listening ports, and a /worktrees pane to review and clear finished worktrees.",
   "types": "./types/index.d.ts",
-  "author": { "name": "Tadata" },
+  "author": {
+    "name": "Tadata"
+  },
   "license": "MIT",
-  "keywords": ["mod", "git", "worktree", "interface"]
+  "keywords": [
+    "mod",
+    "git",
+    "worktree",
+    "status line",
+    "ports",
+    "cleanup"
+  ]
 }

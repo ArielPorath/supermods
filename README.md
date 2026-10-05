@@ -14,8 +14,9 @@ first. You should still check the "What it touches" section of each mod's README
 
 ---
 
+- [Catalog](#catalog): the mods in this repo
+- [Finding a mod](#finding-a-mod)
 - [Mods in one minute](#mods-in-one-minute)
-- [Catalog](#catalog)
 - [Using mods](#using-mods)
 - [Building a mod](#building-a-mod)
 - [Contributing](#contributing)
@@ -23,6 +24,48 @@ first. You should still check the "What it touches" section of each mod's README
 - [License](#license)
 
 ---
+
+## Catalog
+
+Three mods so far. Each lives in [`plugins/`](plugins/) with its own README, tests where it has
+them, and a "What it touches" section listing the events it hooks and what it can reach.
+
+| Mod | What it does | Category | Search words |
+|---|---|---|---|
+| [`agent-debugger`](plugins/agent-debugger/) | A step debugger for the agent loop. Pause at prompts, model requests, responses, tool calls and results; inspect and edit them; play, step, stop, or re-run from an earlier event. | 📊 Observability | debugger, breakpoints, step, pause, inspect, tool calls, re-run, rewind |
+| [`git-account-hint`](plugins/git-account-hint/) | When GitHub refuses a git command for the account it used, tells Claude which other `gh` accounts are signed in and how to run the command as one of them. | ⚡ Workflow | git, github, gh, push, permission denied, accounts, authentication |
+| [`worktree-hud`](plugins/worktree-hud/) | Shows the current git worktree, branch and listening ports in the status line, and adds a `/worktrees` pane to review and clear finished worktrees. | 🖥️ Interface | git, worktree, status line, ports, cleanup |
+
+Install any of them by name:
+
+```
+/plugin install agent-debugger@supermods
+/plugin install git-account-hint@supermods
+/plugin install worktree-hud@supermods
+```
+
+### Categories
+
+| Category | What belongs here |
+|---|---|
+| 🛡️ **Safety & guardrails** | Block, confirm, or rewrite risky tool calls; redact secrets |
+| ✍️ **Prompting & context** | Rewrite prompts, inject context, tune system prompt sections |
+| 🖥️ **Interface** | Panes, status lines, custom renders of tool results and messages |
+| ⚡ **Workflow & commands** | New slash commands, automations, turn and session lifecycle |
+| 🔌 **Integrations** | Show data from external CLIs and services inside Claude Code |
+| 📊 **Observability** | Usage, cost, and timing insight into sessions and agents |
+
+## Finding a mod
+
+- **From Claude Code.** After `/plugin marketplace add ArielPorath/supermods`, open `/plugin` and
+  browse the marketplace: every mod is listed there by name with its description.
+- **From GitHub.** The catalog table above is plain text, so GitHub's search over this repository
+  finds a mod by its name or by any of its search words. Each mod's own README says what it does
+  in its first paragraph.
+- **From a script or another tool.**
+  [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) is the machine-readable
+  index: one entry per mod with `name`, `description`, `category`, `keywords`, `version` and
+  `source`.
 
 ## Mods in one minute
 
@@ -52,25 +95,6 @@ same way as plugins.
 
 Skills steer the model. Mods change the program the model runs in. Use both together: a mod can
 enforce a rule that a skill only asks for.
-
-## Catalog
-
-Each mod lives in [`plugins/`](plugins/) and is listed in
-[`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json).
-
-| Category | What belongs here |
-|---|---|
-| 🛡️ **Safety & guardrails** | Block, confirm, or rewrite risky tool calls; redact secrets |
-| ✍️ **Prompting & context** | Rewrite prompts, inject context, tune system prompt sections |
-| 🖥️ **Interface** | Panes, status lines, custom renders of tool results and messages |
-| ⚡ **Workflow & commands** | New slash commands, automations, turn and session lifecycle |
-| 🔌 **Integrations** | Show data from external CLIs and services inside Claude Code |
-| 📊 **Observability** | Usage, cost, and timing insight into sessions and agents |
-
-| Mod | Category | Description |
-|---|---|---|
-| [`agent-debugger`](plugins/agent-debugger/) | 📊 Observability | A step debugger for the agent loop: pause at prompts, model requests, responses, tool calls and results; inspect and edit them; play, step, stop, or re-run from an earlier event. |
-| [`worktree-hud`](plugins/worktree-hud/) | 🖥️ Interface | Status line with the current git worktree, branch and listening ports, and a `/worktrees` pane to review and clear finished worktrees. |
 
 ## Using mods
 
